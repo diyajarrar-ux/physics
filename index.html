@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>الفيزياء التفاعلية – قوانين نيوتن</title>
+<link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef2f6;--card:#fff;--ink:#14243a;--mute:#5a6b80;--line:#c9d4e0;--grid:#dde5ee;--force:#e0522d;--vel:#0f8b8d;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1824;--card:#16253a;--ink:#e8eef6;--mute:#94a6bb;--line:#2b3f58;--grid:#1a2b42;--force:#ff7a52;--vel:#3fd0d2}}
+:root[data-theme="dark"]{--bg:#0e1824;--card:#16253a;--ink:#e8eef6;--mute:#94a6bb;--line:#2b3f58;--grid:#1a2b42;--force:#ff7a52;--vel:#3fd0d2}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Readex Pro",Tahoma,"Segoe UI",sans-serif;line-height:1.9;
+background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:28px 28px}
+main{max-width:860px;margin:0 auto;padding:36px 16px 64px}
+h1{font-size:clamp(2.1rem,7vw,3.4rem);line-height:1.25;margin:0 0 10px;font-weight:700}
+.lead{color:var(--mute);font-size:1.1rem;max-width:56ch;margin:0 0 26px}
+.eq{display:flex;gap:18px;flex-wrap:wrap;direction:ltr;font-weight:700;font-size:1.3rem;margin:0 0 28px}
+.eq span{border-bottom:3px solid var(--force);padding-bottom:2px}
+.list{display:grid;gap:14px}
+a.l{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;align-items:center;text-decoration:none;color:inherit;background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:18px 20px}
+a.l:hover,a.l:focus-visible{border-color:var(--force);outline:none}
+a.l:focus-visible{outline:3px solid var(--vel);outline-offset:2px}
+.n{grid-row:span 2;font-size:2.2rem;font-weight:700;color:var(--force);min-width:2ch;text-align:center}
+.t{font-size:1.25rem;font-weight:600}
+.d{color:var(--mute);font-size:.95rem}
+.sub{margin-top:28px;color:var(--mute);font-size:.95rem}
+</style>
+</head>
+<body>
+<main>
+<h1>الفيزياء التفاعلية: قوانين نيوتن</h1>
+<p class="lead">ثلاثة دروس تبدأ بالتجربة قبل القانون. جرّب، لاحظ، ثم اختبر فهمك.</p>
+<div class="eq" aria-hidden="true"><span>ΣF = 0</span><span>F = m·a</span><span>F₁₂ = −F₂₁</span></div>
+<nav class="list" aria-label="الدروس">
+<a class="l" href="lesson1.html">
+<div class="n">1</div><div class="t">قانون نيوتن الأول</div><div class="d">القصور الذاتي: ادفع صندوقاً وغيّر الاحتكاك، وتأمل راكب الحافلة.</div></a>
+<a class="l" href="lesson2.html">
+<div class="n">2</div><div class="t">قانون نيوتن الثاني</div><div class="d">القوة والتسارع: ارسم العلاقة بين F وm وa واستخدم الحاسبة.</div></a>
+<a class="l" href="lesson3.html">
+<div class="n">3</div><div class="t">قانون نيوتن الثالث</div><div class="d">الفعل ورد الفعل: عربتان تتدافعان وأزواج القوى في حياتك.</div></a>
+</nav>
+<p class="sub">يُنصح بالترتيب: كل درس يبني على الذي قبله.</p>
+</main>
+</body>
+</html>

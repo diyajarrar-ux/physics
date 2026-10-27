@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>قانون نيوتن الأول – القصور الذاتي</title>
+<link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef2f6;--card:#fff;--ink:#14243a;--mute:#5a6b80;--line:#c9d4e0;--grid:#dde5ee;--force:#e0522d;--vel:#0f8b8d;--ok:#1d8a4e;--bad:#c23a3a;--block:#14243a;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1824;--card:#16253a;--ink:#e8eef6;--mute:#94a6bb;--line:#2b3f58;--grid:#1a2b42;--force:#ff7a52;--vel:#3fd0d2;--ok:#4fd28a;--bad:#ff7777;--block:#e8eef6}}
+:root[data-theme="dark"]{--bg:#0e1824;--card:#16253a;--ink:#e8eef6;--mute:#94a6bb;--line:#2b3f58;--grid:#1a2b42;--force:#ff7a52;--vel:#3fd0d2;--ok:#4fd28a;--bad:#ff7777;--block:#e8eef6}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Readex Pro",Tahoma,"Segoe UI",sans-serif;line-height:1.9;
+background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:28px 28px}
+main{max-width:860px;margin:0 auto;padding:24px 16px 64px}
+h1{font-size:clamp(1.9rem,6vw,3rem);line-height:1.3;margin:12px 0 8px;font-weight:700}
+h2{font-size:1.35rem;margin:0 0 10px}
+p{margin:0 0 12px;max-width:62ch}
+.lead{color:var(--mute);font-size:1.05rem}
+section{background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:20px;margin:22px 0}
+.law{border-inline-start:6px solid var(--force);padding:10px 16px;background:var(--bg);border-radius:0 8px 8px 0;font-weight:600}
+canvas{width:100%;height:auto;display:block;border:1.5px solid var(--line);border-radius:10px;background:var(--bg)}
+.ctl{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin:14px 0}
+label{display:block;font-size:.92rem;color:var(--mute)}
+label b{color:var(--ink)}
+input[type=range]{width:100%;accent-color:var(--force)}
+button{font:inherit;cursor:pointer;border:1.5px solid var(--ink);background:var(--ink);color:var(--card);padding:8px 18px;border-radius:8px;margin:4px 0 4px 6px}
+button.alt{background:transparent;color:var(--ink)}
+button:focus-visible,input:focus-visible{outline:3px solid var(--vel);outline-offset:2px}
+.read{display:flex;flex-wrap:wrap;gap:10px;margin:10px 0}
+.read div{flex:1 1 130px;border:1.5px solid var(--line);border-radius:8px;padding:6px 12px;font-size:.9rem;color:var(--mute)}
+.read strong{display:block;font-size:1.3rem;color:var(--ink);font-variant-numeric:tabular-nums}
+.note{font-size:.95rem;color:var(--mute);min-height:3.4em}
+.lane{position:relative;height:120px;border:1.5px solid var(--line);border-radius:10px;overflow:hidden;background:var(--bg)}
+.road{position:absolute;bottom:0;inset-inline:0;height:20px;background:var(--line)}
+.bus{position:absolute;bottom:20px;left:30px;width:210px;height:70px;border:3px solid var(--ink);border-radius:10px;background:var(--card)}
+.guy{position:absolute;bottom:6px;left:90px;width:16px;height:40px;background:var(--force);border-radius:8px 8px 3px 3px}
+.guy::before{content:"";position:absolute;top:-16px;left:1px;width:14px;height:14px;border-radius:50%;background:var(--force)}
+.q{margin:16px 0;padding-top:12px;border-top:1px dashed var(--line)}
+.q:first-of-type{border:0}
+.opt{display:block;width:100%;text-align:start;background:transparent;color:var(--ink);border-color:var(--line);margin:6px 0}
+.opt.right{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 16%,transparent)}
+.opt.wrong{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 16%,transparent)}
+.why{font-size:.93rem;color:var(--mute);margin:4px 0 0}
+.score{font-weight:700;font-size:1.1rem}
+ul{padding-inline-start:22px;margin:0}
+@media (prefers-reduced-motion:reduce){.bus,.guy{transition:none!important}}
+</style>
+</head>
+<body>
+<main>
+<nav style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:.95rem" aria-label="التنقل"><a href="index.html" style="color:var(--vel)">الصفحة الرئيسية</a><a href="lesson2.html" style="color:var(--vel)">الدرس التالي: القانون الثاني ◂</a></nav>
+<header>
+<p class="lead" style="margin:0">الفيزياء · الحركة والقوة</p>
+<h1>قانون نيوتن الأول: لماذا يستمر الجسم في حركته؟</h1>
+<p class="lead">لا تقرأ القانون أولاً. ادفع الصندوق أدناه، غيّر الاحتكاك، ولاحظ ماذا يحدث.</p>
+</header>
+
+<section aria-labelledby="s1">
+<h2 id="s1">التجربة: ادفع الصندوق</h2>
+<canvas id="cv" width="800" height="260" role="img" aria-label="صندوق يتحرك على مسار"></canvas>
+<div class="read" aria-live="off">
+<div>السرعة<strong id="rv">0.0 م/ث</strong></div>
+<div>محصلة القوى<strong id="rf">0.0 N</strong></div>
+<div>الحالة<strong id="rs" style="font-size:1rem">ساكن</strong></div>
+</div>
+<div class="ctl">
+<label>معامل الاحتكاك: <b id="muT">0.30</b><input id="mu" type="range" min="0" max="0.8" step="0.05" value="0.3"></label>
+<label>كتلة الصندوق: <b id="mT">4</b> كغ<input id="m" type="range" min="1" max="10" step="1" value="4"></label>
+</div>
+<button id="push">ادفع دفعة قصيرة</button>
+<button id="reset" class="alt">أعد التجربة</button>
+<p class="note" id="note">اضغط «ادفع» ثم قلّل الاحتكاك إلى صفر وادفع من جديد.</p>
+</section>
+
+<section aria-labelledby="s2">
+<h2 id="s2">ماذا اكتشفنا؟</h2>
+<ul>
+<li>مع احتكاك كبير توقف الصندوق سريعاً. السبب <b>قوة الاحتكاك</b> وليس أن الحركة «تنتهي من تلقاء نفسها».</li>
+<li>كلما قلّ الاحتكاك قطع الصندوق مسافة أطول.</li>
+<li>عند احتكاك صفر لا توجد قوة تؤثر، فاستمر بنفس السرعة دون توقف.</li>
+</ul>
+<p></p>
+<div class="law">يبقى الجسم الساكن ساكناً، ويبقى الجسم المتحرك متحركاً بسرعة ثابتة في خط مستقيم، ما لم تؤثر عليه قوة محصلة غير صفرية.</div>
+<p></p>
+<p><b>القصور الذاتي:</b> هو ميل الجسم لمقاومة أي تغيير في حالته الحركية. وكلما زادت <b>الكتلة</b> زاد القصور الذاتي. جرّب كتلة 1 كغ ثم 10 كغ وقارن أثر الدفعة نفسها.</p>
+</section>
+
+<section aria-labelledby="s3">
+<h2 id="s3">في الحياة: الراكب في الحافلة</h2>
+<div class="lane"><div class="bus" id="bus"><div class="guy" id="guy"></div></div><div class="road"></div></div>
+<button id="go">الحافلة تنطلق</button>
+<button id="stop" class="alt">الحافلة تفرمل</button>
+<button id="rs2" class="alt">أعد</button>
+<p class="note" id="busnote">اختر انطلاقاً أو فرملة.</p>
+</section>
+
+<section aria-labelledby="s4">
+<h2 id="s4">اختبر نفسك</h2>
+<div id="quiz"></div>
+<p class="score" id="score"></p>
+</section>
+</main>
+
+<script>
+(function(){
+var cv=document.getElementById('cv'),c=cv.getContext('2d');
+var $=function(i){return document.getElementById(i)};
+var x=0,v=0,last=null,pushed=false,ghost=0;
+var css=function(n){return getComputedStyle(document.documentElement).getPropertyValue(n).trim()};
+function draw(){
+ var W=800,H=260,gy=190;c.clearRect(0,0,W,H);
+ c.strokeStyle=css('--line');c.lineWidth=3;c.beginPath();c.moveTo(0,gy);c.lineTo(W,gy);c.stroke();
+ c.lineWidth=2;var step=60,off=((x*60)%step+step)%step;
+ for(var i=-1;i<W/step+1;i++){var px=i*step+off;c.beginPath();c.moveTo(px,gy);c.lineTo(px,gy+14);c.stroke()}
+ var s=30+$('m').value*5,bx=W/2-s/2;
+ c.fillStyle=css('--block');c.fillRect(bx,gy-s,s,s);
+ c.fillStyle=css('--card');c.font='600 15px Tahoma,sans-serif';c.textAlign='center';c.fillText($('m').value+' كغ',W/2,gy-s/2+5);
+ c.lineWidth=5;c.lineCap='round';
+ if(Math.abs(v)>0.02){var L=Math.min(v*28,260);arrow(W/2,gy-s-22,W/2+L,gy-s-22,css('--vel'));c.fillStyle=css('--vel');c.textAlign='center';c.fillText('السرعة',W/2+L/2,gy-s-34)}
+ var mu=+$('mu').value,m=+$('m').value;
+ if(mu>0&&Math.abs(v)>0.02){var F=Math.min(mu*m*9.8*2.2,120);arrow(W/2+s/2,gy-8,W/2+s/2-Math.sign(v)*F-0,gy-8,css('--force'));}
+ if(ghost>0){var g=Math.min(ghost/6,1);arrow(W/2-s/2-70,gy-s/2,W/2-s/2,gy-s/2,css('--force'));ghost=Math.max(0,ghost-0.05)}
+}
+function arrow(x1,y1,x2,y2,col){
+ c.strokeStyle=col;c.fillStyle=col;c.beginPath();c.moveTo(x1,y1);c.lineTo(x2,y2);c.stroke();
+ var d=Math.sign(x2-x1)||1;c.beginPath();c.moveTo(x2,y2);c.lineTo(x2-d*12,y2-8);c.lineTo(x2-d*12,y2+8);c.closePath();c.fill();
+}
+function tick(t){
+ if(last===null)last=t;var dt=Math.min((t-last)/1000,0.05);last=t;
+ var mu=+$('mu').value,m=+$('m').value,F=0;
+ if(Math.abs(v)>0.001){
+  F=mu*m*9.8;var dv=F/m*dt;
+  if(dv>=Math.abs(v)){v=0;F=0}else v-=Math.sign(v)*dv;
+ } else v=0;
+ x+=v*dt;
+ $('rv').textContent=v.toFixed(1)+' م/ث';
+ $('rf').textContent=(v===0&&F===0?0:-F).toFixed(1)+' N';
+ $('rs').textContent=v===0?'ساكن':(mu===0?'سرعة ثابتة (القوة = 0)':'يتباطأ بفعل الاحتكاك');
+ draw();requestAnimationFrame(tick);
+}
+$('push').onclick=function(){v+=6/(+$('m').value)*1.0+0.8;ghost=3;pushed=true;
+ var mu=+$('mu').value;
+ $('note').textContent=mu===0?'لا احتكاك: لا قوة تغيّر السرعة، فيستمر الصندوق بنفس السرعة. هذا هو القانون الأول.':'الاحتكاك قوة تعاكس الحركة وتبطئ الصندوق حتى يقف.';};
+$('reset').onclick=function(){v=0;x=0;$('note').textContent='جرّب تغيير الاحتكاك والكتلة ثم ادفع.'};
+$('mu').oninput=function(){$('muT').textContent=(+this.value).toFixed(2)};
+$('m').oninput=function(){$('mT').textContent=this.value};
+requestAnimationFrame(tick);
+
+/* bus */
+var bus=$('bus'),guy=$('guy'),bn=$('busnote');
+function busMove(dx,txt){bus.style.transition='left .8s ease-in';bus.style.left=dx+'px';setTimeout(function(){bn.textContent=txt},300)}
+function reset(){bus.style.transition='none';guy.style.transition='none';bus.style.left='30px';guy.style.left='90px';guy.style.transform='none';bn.textContent='اختر انطلاقاً أو فرملة.'}
+$('go').onclick=function(){reset();void bus.offsetWidth;
+ guy.style.transition='transform .5s ease-out';guy.style.transform='rotate(-18deg) translateX(-14px)';
+ bus.style.transition='left 1s ease-in';bus.style.left='200px';
+ bn.textContent='الراكب كان ساكناً فيميل إلى الخلف: جسمه «يريد» البقاء ساكناً بينما تتحرك الحافلة من تحته.'};
+$('stop').onclick=function(){reset();void bus.offsetWidth;
+ guy.style.transition='transform .5s ease-out';guy.style.transform='rotate(18deg) translateX(14px)';
+ bn.textContent='الراكب كان متحركاً مع الحافلة، وعند الفرملة يميل إلى الأمام: جسمه يواصل الحركة بسرعته السابقة. لهذا نربط حزام الأمان.'};
+$('rs2').onclick=reset;
+
+/* quiz */
+var Q=[
+{q:'جسم يتحرك على سطح أملس تماماً (دون احتكاك) بسرعة 5 م/ث. ماذا يحدث له؟',o:['يتباطأ تدريجياً ثم يقف','يستمر بسرعة 5 م/ث في خط مستقيم','تزداد سرعته تدريجياً'],a:1,w:'محصلة القوى صفر، فلا تتغير السرعة.'},
+{q:'أي الجسمين قصوره الذاتي أكبر؟',o:['كرة كتلتها 1 كغ','صندوق كتلته 20 كغ','متساويان'],a:1,w:'القصور الذاتي يزداد بزيادة الكتلة.'},
+{q:'سيارة تسير بسرعة ثابتة على طريق مستقيم. محصلة القوى المؤثرة عليها:',o:['صفر','في اتجاه الحركة','عكس اتجاه الحركة'],a:0,w:'السرعة الثابتة في خط مستقيم تعني تسارعاً صفراً، إذن المحصلة صفر.'},
+{q:'عند توقف الحافلة فجأة يندفع الركاب للأمام بسبب:',o:['قوة تدفعهم من الحافلة','القصور الذاتي','انعدام الجاذبية'],a:1,w:'أجسامهم تميل لمواصلة حركتها السابقة.'}];
+var done=0,sc=0,box=$('quiz');
+Q.forEach(function(it,i){
+ var d=document.createElement('div');d.className='q';
+ d.innerHTML='<p><b>'+(i+1)+'.</b> '+it.q+'</p>';
+ var res=document.createElement('p');res.className='why';
+ it.o.forEach(function(t,j){var b=document.createElement('button');b.className='opt';b.textContent=t;
+  b.onclick=function(){if(d.dataset.done)return;d.dataset.done=1;done++;
+   var bs=d.querySelectorAll('.opt');
+   if(j===it.a){b.classList.add('right');sc++;res.textContent='صحيح. '+it.w}else{b.classList.add('wrong');bs[it.a].classList.add('right');res.textContent='ليست صحيحة. '+it.w}
+   if(done===Q.length)$('score').textContent='نتيجتك: '+sc+' من '+Q.length+(sc===Q.length?' — ممتاز!':' — راجع التجربة أعلاه وأعد المحاولة.');};
+  d.appendChild(b)});
+ d.appendChild(res);box.appendChild(d)});
+})();
+</script>
+</body>
+</html>
