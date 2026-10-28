@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>الفيزياء التفاعلية – قوانين نيوتن</title>
+<link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef2f6;--card:#fff;--ink:#14243a;--mute:#5a6b80;--line:#c9d4e0;--force:#e0522d;--vel:#0f8b8d;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1824;--card:#16253a;--ink:#e8eef6;--mute:#94a6bb;--line:#2b3f58;--force:#ff7a52;--vel:#3fd0d2}}
+:root[data-theme="dark"]{--bg:#0e1824;--card:#16253a;--ink:#e8eef6;--mute:#94a6bb;--line:#2b3f58;--force:#ff7a52;--vel:#3fd0d2}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Readex Pro",Tahoma,sans-serif}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1.5px solid var(--line)}
+.in{max-width:860px;margin:0 auto;padding:10px 16px}
+.ttl{font-weight:700;margin:0 0 6px;font-size:1rem}
+[role=tablist]{display:flex;gap:8px;flex-wrap:wrap}
+[role=tab]{font:inherit;font-size:.95rem;cursor:pointer;border:1.5px solid var(--line);background:var(--card);color:var(--ink);padding:6px 14px;border-radius:8px}
+[role=tab][aria-selected=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+[role=tab]:focus-visible,.nx button:focus-visible{outline:3px solid var(--vel);outline-offset:2px}
+iframe{display:block;width:100%;border:0;min-height:70vh}
+.nx{max-width:860px;margin:0 auto;padding:0 16px 40px;display:flex;justify-content:space-between;gap:10px}
+.nx button{font:inherit;cursor:pointer;border:1.5px solid var(--ink);background:transparent;color:var(--ink);padding:8px 18px;border-radius:8px}
+.nx button[hidden]{display:none}
+</style></head><body>
+<header><div class="in"><p class="ttl">الفيزياء التفاعلية: قوانين نيوتن</p><div role="tablist" aria-label="الدروس"><button role="tab" id="t1" aria-selected="false" aria-controls="f1" data-i="0">1. القانون الأول</button><button role="tab" id="t2" aria-selected="false" aria-controls="f2" data-i="1">2. القانون الثاني</button><button role="tab" id="t3" aria-selected="false" aria-controls="f3" data-i="2">3. القانون الثالث</button></div></div></header>
+<iframe id="f1" title="القانون الأول" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;ar&quot; dir=&quot;rtl&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, viewport-fit=cover&quot;&gt;
+&lt;title&gt;قانون نيوتن الأول – القصور الذاتي&lt;/title&gt;
+&lt;link href=&quot;https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;600;700&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;style&gt;
+:root{--bg:#eef2f6;--card:#fff;--ink:#14243a;--mute:#5a6b80;--line:#c9d4e0;--grid:#dde5ee;--force:#e0522d;--vel:#0f8b8d;--ok:#1d8a4e;--bad:#c23a3a;--block:#14243a;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme=&quot;light&quot;]){--bg:#0e1824;--card:#16253a;--ink:#e8eef6;--mute:#94a6bb;--line:#2b3f58;--grid:#1a2b42;--force:#ff7a52;--vel:#3fd0d2;--ok:#4fd28a;--bad:#ff7777;--block:#e8eef6}}
+:root[data-theme=&quot;dark&quot;]{--bg:#0e1824;--card:#16253a;--ink:#e8eef6;--mute:#94a6bb;--line:#2b3f58;--grid:#1a2b42;--force:#ff7a52;--vel:#3fd0d2;--ok:#4fd28a;--bad:#ff7777;--block:#e8eef6}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:&quot;Readex Pro&quot;,Tahoma,&quot;Segoe UI&quot;,sans-serif;line-height:1.9;
+background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:28px 28px}
+main{max-width:860px;margin:0 auto;padding:24px 16px 64px}
+h1{font-size:clamp(1.9rem,6vw,3rem);line-height:1.3;margin:12px 0 8px;font-weight:700}
+h2{font-size:1.35rem;margin:0 0 10px}
+p{margin:0 0 12px;max-width:62ch}
+.lead{color:var(--mute);font-size:1.05rem}
+section{background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:20px;margin:22px 0}
+.law{border-inline-start:6px solid var(--force);padding:10px 16px;background:var(--bg);border-radius:0 8px 8px 0;font-weight:600}
+canvas{width:100%;height:auto;display:block;border:1.5px solid var(--line);border-radius:10px;background:var(--bg)}
+.ctl{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin:14px 0}
+label{display:block;font-size:.92rem;color:var(--mute)}
+label b{color:var(--ink)}
+input[type=range]{width:100%;accent-color:var(--force)}
+button{font:inherit;cursor:pointer;border:1.5px solid var(--ink);background:var(--ink);color:var(--card);padding:8px 18px;border-radius:8px;margin:4px 0 4px 6px}
+button.alt{background:transparent;color:var(--ink)}
+button:focus-visible,input:focus-visible{outline:3px solid var(--vel);outline-offset:2px}
+.read{display:flex;flex-wrap:wrap;gap:10px;margin:10px 0}
+.read div{flex:1 1 130px;border:1.5px solid var(--line);border-radius:8px;padding:6px 12px;font-size:.9rem;color:var(--mute)}
+.read strong{display:block;font-size:1.3rem;color:var(--ink);font-variant-numeric:tabular-nums}
+.note{font-size:.95rem;color:var(--mute);min-height:3.4em}
+.lane{position:relative;height:120px;border:1.5px solid var(--line);border-radius:10px;overflow:hidden;background:var(--bg)}
+.road{position:absolute;bottom:0;inset-inline:0;height:20px;background:var(--line)}
+.bus{position:absolute;bottom:20px;left:30px;width:210px;height:70px;border:3px solid var(--ink);border-radius:10px;background:var(--card)}
+.guy{position:absolute;bottom:6px;left:90px;width:16px;height:40px;background:var(--force);border-radius:8px 8px 3px 3px}
+.guy::before{content:&quot;&quot;;position:absolute;top:-16px;left:1px;width:14px;height:14px;border-radius:50%;background:var(--force)}
+.q{margin:16px 0;padding-top:12px;border-top:1px dashed var(--line)}
+.q:first-of-type{border:0}
+.opt{display:block;width:100%;text-align:start;background:transparent;color:var(--ink);border-color:var(--line);margin:6px 0}
+.opt.right{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 16%,transparent)}
+.opt.wrong{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 16%,transparent)}
+.why{font-size:.93rem;color:var(--mute);margin:4px 0 0}
+.score{font-weight:700;font-size:1.1rem}
+ul{padding-inline-start:22px;margin:0}
+@media (prefers-reduced-motion:reduce){.bus,.guy{transition:none!important}}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;main&gt;
+&lt;header&gt;
+&lt;p class=&quot;lead&quot; style=&quot;margin:0&quot;&gt;الفيزياء · الحركة والقوة&lt;/p&gt;
+&lt;h1&gt;قانون نيوتن الأول: لماذا يستمر الجسم في حركته؟&lt;/h1&gt;
+&lt;p class=&quot;lead&quot;&gt;لا تقرأ القانون أولاً. ادفع الصندوق أدناه، غيّر الاحتكاك، ولاحظ ماذا يحدث.&lt;/p&gt;
+&lt;/header&gt;
+
+&lt;section aria-labelledby=&quot;s1&quot;&gt;
+&lt;h2 id=&quot;s1&quot;&gt;التجربة: ادفع الصندوق&lt;/h2&gt;
+&lt;canvas id=&quot;cv&quot; width=&quot;800&quot; height=&quot;260&quot; role=&quot;img&quot; aria-label=&quot;صندوق يتحرك على مسار&quot;&gt;&lt;/canvas&gt;
+&lt;div class=&quot;read&quot; aria-live=&quot;off&quot;&gt;
+&lt;div&gt;السرعة&lt;strong id=&quot;rv&quot;&gt;0.0 م/ث&lt;/strong&gt;&lt;/div&gt;
+&lt;div&gt;محصلة القوى&lt;strong id=&quot;rf&quot;&gt;0.0 N&lt;/strong&gt;&lt;/div&gt;
+&lt;div&gt;الحالة&lt;strong id=&quot;rs&quot; style=&quot;font-size:1rem&quot;&gt;ساكن&lt;/strong&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ctl&quot;&gt;
+&lt;label&gt;معامل الاحتكاك: &lt;b id=&quot;muT&quot;&gt;0.30&lt;/b&gt;&lt;input id=&quot;mu&quot; type=&quot;range&quot; min=&quot;0&quot; max=&quot;0.8&quot; step=&quot;0.05&quot; value=&quot;0.3&quot;&gt;&lt;/label&gt;
+&lt;label&gt;كتلة الصندوق: &lt;b id=&quot;mT&quot;&gt;4&lt;/b&gt; كغ&lt;input id=&quot;m&quot; type=&quot;range&quot; min=&quot;1&quot; max=&quot;10&quot; step=&quot;1&quot; value=&quot;4&quot;&gt;&lt;/label&gt;
+&lt;/div&gt;
+&lt;button id=&quot;push&quot;&gt;ادفع دفعة قصيرة&lt;/button&gt;
+&lt;button id=&quot;reset&quot; class=&quot;alt&quot;&gt;أعد التجربة&lt;/button&gt;
+&lt;p class=&quot;note&quot; id=&quot;note&quot;&gt;اضغط «ادفع» ثم قلّل الاحتكاك إلى صفر وادفع من جديد.&lt;/p&gt;
+&lt;/section&gt;
+
+&lt;section aria-labelledby=&quot;s2&quot;&gt;
+&lt;h2 id=&quot;s2&quot;&gt;ماذا اكتشفنا؟&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;مع احتكاك كبير توقف الصندوق سريعاً. السبب &lt;b&gt;قوة الاحتكاك&lt;/b&gt; وليس أن الحركة «تنتهي من تلقاء نفسها».&lt;/li&gt;
+&lt;li&gt;كلما قلّ الاحتكاك قطع الصندوق مسافة أطول.&lt;/li&gt;
+&lt;li&gt;عند احتكاك صفر لا توجد قوة تؤثر، فاستمر بنفس السرعة دون توقف.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;div class=&quot;law&quot;&gt;يبقى الجسم الساكن ساكناً، ويبقى الجسم المتحرك متحركاً بسرعة ثابتة في خط مستقيم، ما لم تؤثر عليه قوة محصلة غير صفرية.&lt;/div&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;القصور الذاتي:&lt;/b&gt; هو ميل الجسم لمقاومة أي تغيير في حالته الحركية. وكلما زادت &lt;b&gt;الكتلة&lt;/b&gt; زاد القصور الذاتي. جرّب كتلة 1 كغ ثم 10 كغ وقارن أثر الدفعة نفسها.&lt;/p&gt;
+&lt;/section&gt;
+
+&lt;section aria-labelledby=&quot;s3&quot;&gt;
+&lt;h2 id=&quot;s3&quot;&gt;في الحياة: الراكب في الحافلة&lt;/h2&gt;
+&lt;div class=&quot;lane&quot;&gt;&lt;div class=&quot;bus&quot; id=&quot;bus&quot;&gt;&lt;div class=&quot;guy&quot; id=&quot;guy&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;road&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;button id=&quot;go&quot;&gt;الحافلة تنطلق&lt;/button&gt;
+&lt;button id=&quot;stop&quot; class=&quot;alt&quot;&gt;الحافلة تفرمل&lt;/button&gt;
+&lt;button id=&quot;rs2&quot; class=&quot;alt&quot;&gt;أعد&lt;/button&gt;
+&lt;p class=&quot;note&quot; id=&quot;busnote&quot;&gt;اختر انطلاقاً أو فرملة.&lt;/p&gt;
+&lt;/section&gt;
+
+&lt;section aria-labelledby=&quot;s4&quot;&gt;
+&lt;h2 id=&quot;s4&quot;&gt;اختبر نفسك&lt;/h2&gt;
+&lt;div id=&quot;quiz&quot;&gt;&lt;/div&gt;
+&lt;p class=&quot;score&quot; id=&quot;score&quot;&gt;&lt;/p&gt;
+&lt;/section&gt;
+&lt;/main&gt;
+
+&lt;script&gt;
+(function(){
+var cv=document.getElementById(&#x27;cv&#x27;),c=cv.getContext(&#x27;2d&#x27;);
+var $=function(i){return document.getElementById(i)};
+var x=0,v=0,last=null,pushed=false,ghost=0;
+var css=function(n){return getComputedStyle(document.documentElement).getPropertyValue(n).trim()};
+function draw(){
+ var W=800,H=260,gy=190;c.clearRect(0,0,W,H);
+ c.strokeStyle=css(&#x27;--line&#x27;);c.lineWidth=3;c.beginPath();c.moveTo(0,gy);c.lineTo(W,gy);c.stroke();
+ c.lineWidth=2;var step=60,off=((x*60)%step+step)%step;
+ for(var i=-1;i&lt;W/step+1;i++){var px=i*step+off;c.beginPath();c.moveTo(px,gy);c.lineTo(px,gy+14);c.stroke()}
+ var s=30+$(&#x27;m&#x27;).value*5,bx=W/2-s/2;
+ c.fillStyle=css(&#x27;--block&#x27;);c.fillRect(bx,gy-s,s,s);
+ c.fillStyle=css(&#x27;--card&#x27;);c.font=&#x27;600 15px Tahoma,sans-serif&#x27;;c.textAlign=&#x27;center&#x27;;c.fillText($(&#x27;m&#x27;).value+&#x27; كغ&#x27;,W/2,gy-s/2+5);
+ c.lineWidth=5;c.lineCap=&#x27;round&#x27;;
+ if(Math.abs(v)&gt;0.02){var L=Math.min(v*28,260);arrow(W/2,gy-s-22,W/2+L,gy-s-22,css(&#x27;--vel&#x27;));c.fillStyle=css(&#x27;--vel&#x27;);c.textAlign=&#x27;center&#x27;;c.fillText(&#x27;السرعة&#x27;,W/2+L/2,gy-s-34)}
+ var mu=+$(&#x27;mu&#x27;).value,m=+$(&#x27;m&#x27;).value;
+ if(mu&gt;0&amp;&amp;Math.abs(v)&gt;0.02){var F=Math.min(mu*m*9.8*2.2,120);arrow(W/2+s/2,gy-8,W/2+s/2-Math.sign(v)*F-0,gy-8,css(&#x27;--force&#x27;));}
+ if(ghost&gt;0){var g=Math.min(ghost/6,1);arrow(W/2-s/2-70,gy-s/2,W/2-s/2,gy-s/2,css(&#x27;--force&#x27;));ghost=Math.max(0,ghost-0.05)}
+}
+function arrow(x1,y1,x2,y2,col){
+ c.strokeStyle=col;c.fillStyle=col;c.beginPath();c.moveTo(x1,y1);c.lineTo(x2,y2);c.stroke();
+ var d=Math.sign(x2-x1)||1;c.beginPath();c.moveTo(x2,y2);c.lineTo(x2-d*12,y2-8);c.lineTo(x2-d*12,y2+8);c.closePath();c.fill();
+}
+function tick(t){
+ if(last===null)last=t;var dt=Math.min((t-last)/1000,0.05);last=t;
+ var mu=+$(&#x27;mu&#x27;).value,m=+$(&#x27;m&#x27;).value,F=0;
+ if(Math.abs(v)&gt;0.001){
+  F=mu*m*9.8;var dv=F/m*dt;
+  if(dv&gt;=Math.abs(v)){v=0;F=0}else v-=Math.sign(v)*dv;
+ } else v=0;
+ x+=v*dt;
+ $(&#x27;rv&#x27;).textContent=v.toFixed(1)+&#x27; م/ث&#x27;;
+ $(&#x27;rf&#x27;).textContent=(v===0&amp;&amp;F===0?0:-F).toFixed(1)+&#x27; N&#x27;;
+ $(&#x27;rs&#x27;).textContent=v===0?&#x27;ساكن&#x27;:(mu===0?&#x27;سرعة ثابتة (القوة = 0)&#x27;:&#x27;يتباطأ بفعل الاحتكاك&#x27;);
+ draw();requestAnimationFrame(tick);
+}
+$(&#x27;push&#x27;).onclick=function(){v+=6/(+$(&#x27;m&#x27;).value)*1.0+0.8;ghost=3;pushed=true;
+ var mu=+$(&#x27;mu&#x27;).value;
+ $(&#x27;note&#x27;).textContent=mu===0?&#x27;لا احتكاك: لا قوة تغيّر السرعة، فيستمر الصندوق بنفس السرعة. هذا هو القانون الأول.&#x27;:&#x27;الاحتكاك قوة تعاكس الحركة وتبطئ الصندوق حتى يقف.&#x27;;};
+$(&#x27;reset&#x27;).onclick=function(){v=0;x=0;$(&#x27;note&#x27;).textContent=&#x27;جرّب تغيير الاحتكاك والكتلة ثم ادفع.&#x27;};
+$(&#x27;mu&#x27;).oninput=function(){$(&#x27;muT&#x27;).textContent=(+this.value).toFixed(2)};
+$(&#x27;m&#x27;).oninput=function(){$(&#x27;mT&#x27;).textContent=this.value};
+requestAnimationFrame(tick);
+
+/* bus */
+var bus=$(&#x27;bus&#x27;),guy=$(&#x27;guy&#x27;),bn=$(&#x27;busnote&#x27;);
+function busMove(dx,txt){bus.style.transition=&#x27;left .8s ease-in&#x27;;bus.style.left=dx+&#x27;px&#x27;;setTimeout(function(){bn.textContent=txt},300)}
+function reset(){bus.style.transition=&#x27;none&#x27;;guy.style.transition=&#x27;none&#x27;;bus.style.left=&#x27;30px&#x27;;guy.style.left=&#x27;90px&#x27;;guy.style.transform=&#x27;none&#x27;;bn.textContent=&#x27;اختر انطلاقاً أو فرملة.&#x27;}
+$(&#x27;go&#x27;).onclick=function(){reset();void bus.offsetWidth;
+ guy.style.transition=&#x27;transform .5s ease-out&#x27;;guy.style.transform=&#x27;rotate(-18deg) translateX(-14px)&#x27;;
+ bus.style.transition=&#x27;left 1s ease-in&#x27;;bus.style.left=&#x27;200px&#x27;;
+ bn.textContent=&#x27;الراكب كان ساكناً فيميل إلى الخلف: جسمه «يريد» البقاء ساكناً بينما تتحرك الحافلة من تحته.&#x27;};
+$(&#x27;stop&#x27;).onclick=function(){reset();void bus.offsetWidth;
+ guy.style.transition=&#x27;transform .5s ease-out&#x27;;guy.style.transform=&#x27;rotate(18deg) translateX(14px)&#x27;;
+ bn.textContent=&#x27;الراكب كان متحركاً مع الحافلة، وعند الفرملة يميل إلى الأمام: جسمه يواصل الحركة بسرعته السابقة. لهذا نربط حزام الأمان.&#x27;};
+$(&#x27;rs2&#x27;).onclick=reset;
+
+/* quiz */
+var Q=[
+{q:&#x27;جسم يتحرك على سطح أملس تماماً (دون احتكاك) بسرعة 5 م/ث. ماذا يحدث له؟&#x27;,o:[&#x27;يتباطأ تدريجياً ثم يقف&#x27;,&#x27;يستمر بسرعة 5 م/ث في خط مستقيم&#x27;,&#x27;تزداد سرعته تدريجياً&#x27;],a:1,w:&#x27;محصلة القوى صفر، فلا تتغير السرعة.&#x27;},
+{q:&#x27;أي الجسمين قصوره الذاتي أكبر؟&#x27;,o:[&#x27;كرة كتلتها 1 كغ&#x27;,&#x27;صندوق كتلته 20 كغ&#x27;,&#x27;متساويان&#x27;],a:1,w:&#x27;القصور الذاتي يزداد بزيادة الكتلة.&#x27;},
+{q:&#x27;سيارة تسير بسرعة ثابتة على طريق مستقيم. محصلة القوى المؤثرة عليها:&#x27;,o:[&#x27;صفر&#x27;,&#x27;في اتجاه الحركة&#x27;,&#x27;عكس اتجاه الحركة&#x27;],a:0,w:&#x27;السرعة الثابتة في خط مستقيم تعني تسارعاً صفراً، إذن المحصلة صفر.&#x27;},
+{q:&#x27;عند توقف الحافلة فجأة يندفع الركاب للأمام بسبب:&#x27;,o:[&#x27;قوة تدفعهم من الحافلة&#x27;,&#x27;القصور الذاتي&#x27;,&#x27;انعدام الجاذبية&#x27;],a:1,w:&#x27;أجسامهم تميل لمواصلة حركتها السابقة.&#x27;}];
+var done=0,sc=0,box=$(&#x27;quiz&#x27;);
+Q.forEach(function(it,i){
+ var d=document.createElement(&#x27;div&#x27;);d.className=&#x27;q&#x27;;
+ d.innerHTML=&#x27;&lt;p&gt;&lt;b&gt;&#x27;+(i+1)+&#x27;.&lt;/b&gt; &#x27;+it.q+&#x27;&lt;/p&gt;&#x27;;
+ var res=document.createElement(&#x27;p&#x27;);res.className=&#x27;why&#x27;;
+ it.o.forEach(function(t,j){var b=document.createElement(&#x27;button&#x27;);b.className=&#x27;opt&#x27;;b.textContent=t;
+  b.onclick=function(){if(d.dataset.done)return;d.dataset.done=1;done++;
+   var bs=d.querySelectorAll(&#x27;.opt&#x27;);
+   if(j===it.a){b.classList.add(&#x27;right&#x27;);sc++;res.textContent=&#x27;صحيح. &#x27;+it.w}else{b.classList.add(&#x27;wrong&#x27;);bs[it.a].classList.add(&#x27;right&#x27;);res.textContent=&#x27;ليست صحيحة. &#x27;+it.w}
+   if(done===Q.length)$(&#x27;score&#x27;).textContent=&#x27;نتيجتك: &#x27;+sc+&#x27; من &#x27;+Q.length+(sc===Q.length?&#x27; — ممتاز!&#x27;:&#x27; — راجع التجربة أعلاه وأعد المحاولة.&#x27;);};
+  d.appendChild(b)});
+ d.appendChild(res);box.appendChild(d)});
+})();
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+" hidden></iframe><iframe id="f2" title="القانون الثاني" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;ar&quot; dir=&quot;rtl&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, viewport-fit=cover&quot;&gt;
+&lt;title&gt;قانون نيوتن الثاني – القوة والتسارع&lt;/title&gt;
+&lt;link href=&quot;https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;600;700&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;style&gt;
+:root{--bg:#eef2f6;--card:#fff;--ink:#14243a;--mute:#5a6b80;--line:#c9d4e0;--grid:#dde5ee;--force:#e0522d;--vel:#0f8b8d;--ok:#1d8a4e;--bad:#c23a3a;--block:#14243a;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme=&quot;light&quot;]){--bg:#0e1824;--card:#16253a;--ink:#e8eef6;--mute:#94a6bb;--line:#2b3f58;--grid:#1a2b42;--force:#ff7a52;--vel:#3fd0d2;--ok:#4fd28a;--bad:#ff7777;--block:#e8eef6}}
+:root[data-theme=&quot;dark&quot;]{--bg:#0e1824;--card:#16253a;--ink:#e8eef6;--mute:#94a6bb;--line:#2b3f58;--grid:#1a2b42;--force:#ff7a52;--vel:#3fd0d2;--ok:#4fd28a;--bad:#ff7777;--block:#e8eef6}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:&quot;Readex Pro&quot;,Tahoma,&quot;Segoe UI&quot;,sans-serif;line-height:1.9;
+background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:28px 28px}
+main{max-width:860px;margin:0 auto;padding:24px 16px 64px}
+h1{font-size:clamp(1.9rem,6vw,3rem);line-height:1.3;margin:12px 0 8px;font-weight:700}
+h2{font-size:1.35rem;margin:0 0 10px}
+p{margin:0 0 12px;max-width:62ch}
+.lead{color:var(--mute);font-size:1.05rem}
+section{background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:20px;margin:22px 0}
+.law{border-inline-start:6px solid var(--force);padding:10px 16px;background:var(--bg);border-radius:0 8px 8px 0;font-weight:600}
+.eq{font-size:2rem;text-align:center;direction:ltr;font-weight:700;letter-spacing:.05em;margin:10px 0}
+.eq span{color:var(--force)}
+canvas{width:100%;height:auto;display:block;border:1.5px solid var(--line);border-radius:10px;background:var(--bg)}
+.ctl{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin:14px 0}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin:12px 0}
+label{display:block;font-size:.92rem;color:var(--mute)}
+label b{color:var(--ink)}
+input[type=range]{width:100%;accent-color:var(--force)}
+input[type=number]{font:inherit;width:100%;padding:6px 10px;border:1.5px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink)}
+button{font:inherit;cursor:pointer;border:1.5px solid var(--ink);background:var(--ink);color:var(--card);padding:8px 18px;border-radius:8px;margin:4px 0 4px 6px}
+button.alt{background:transparent;color:var(--ink)}
+button:focus-visible,input:focus-visible{outline:3px solid var(--vel);outline-offset:2px}
+.read{display:flex;flex-wrap:wrap;gap:10px;margin:10px 0}
+.read div{flex:1 1 120px;border:1.5px solid var(--line);border-radius:8px;padding:6px 12px;font-size:.9rem;color:var(--mute)}
+.read strong{display:block;font-size:1.3rem;color:var(--ink);font-variant-numeric:tabular-nums}
+.note{font-size:.95rem;color:var(--mute);min-height:3.4em}
+.q{margin:16px 0;padding-top:12px;border-top:1px dashed var(--line)}
+.q:first-of-type{border:0}
+.opt{display:block;width:100%;text-align:start;background:transparent;color:var(--ink);border-color:var(--line);margin:6px 0}
+.opt.right{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 16%,transparent)}
+.opt.wrong{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 16%,transparent)}
+.why{font-size:.93rem;color:var(--mute);margin:4px 0 0}
+.score{font-weight:700;font-size:1.1rem}
+ul{padding-inline-start:22px;margin:0}
+.ans{font-size:1.2rem;font-weight:700;color:var(--vel)}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;main&gt;
+&lt;header&gt;
+&lt;p class=&quot;lead&quot; style=&quot;margin:0&quot;&gt;الفيزياء · الحركة والقوة&lt;/p&gt;
+&lt;h1&gt;قانون نيوتن الثاني: كيف تغيّر القوة الحركة؟&lt;/h1&gt;
+&lt;p class=&quot;lead&quot;&gt;القانون الأول قال إن القوة المحصلة تغيّر الحركة. هنا نقيس بالضبط: بكم؟&lt;/p&gt;
+&lt;/header&gt;
+
+&lt;section aria-labelledby=&quot;s1&quot;&gt;
+&lt;h2 id=&quot;s1&quot;&gt;التجربة: اسحب العربة بقوة معلومة&lt;/h2&gt;
+&lt;canvas id=&quot;cv&quot; width=&quot;800&quot; height=&quot;240&quot; role=&quot;img&quot; aria-label=&quot;عربة تتسارع تحت تأثير قوة&quot;&gt;&lt;/canvas&gt;
+&lt;div class=&quot;read&quot;&gt;
+&lt;div&gt;التسارع a&lt;strong id=&quot;ra&quot;&gt;0.0 م/ث²&lt;/strong&gt;&lt;/div&gt;
+&lt;div&gt;السرعة v&lt;strong id=&quot;rv&quot;&gt;0.0 م/ث&lt;/strong&gt;&lt;/div&gt;
+&lt;div&gt;الزمن t&lt;strong id=&quot;rt&quot;&gt;0.0 ث&lt;/strong&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ctl&quot;&gt;
+&lt;label&gt;القوة المحصلة F: &lt;b id=&quot;FT&quot;&gt;10&lt;/b&gt; N&lt;input id=&quot;F&quot; type=&quot;range&quot; min=&quot;0&quot; max=&quot;20&quot; step=&quot;1&quot; value=&quot;10&quot;&gt;&lt;/label&gt;
+&lt;label&gt;الكتلة m: &lt;b id=&quot;mT&quot;&gt;5&lt;/b&gt; كغ&lt;input id=&quot;m&quot; type=&quot;range&quot; min=&quot;1&quot; max=&quot;10&quot; step=&quot;1&quot; value=&quot;5&quot;&gt;&lt;/label&gt;
+&lt;/div&gt;
+&lt;button id=&quot;go&quot;&gt;ابدأ بتطبيق القوة&lt;/button&gt;
+&lt;button id=&quot;rel&quot; class=&quot;alt&quot;&gt;أوقف القوة&lt;/button&gt;
+&lt;button id=&quot;reset&quot; class=&quot;alt&quot;&gt;أعد التجربة&lt;/button&gt;
+&lt;p class=&quot;note&quot; id=&quot;note&quot;&gt;اضغط «ابدأ» وراقب السرعة تزداد. ثم اضغط «أوقف القوة»: ماذا يحدث؟ (تذكّر القانون الأول).&lt;/p&gt;
+&lt;/section&gt;
+
+&lt;section aria-labelledby=&quot;s2&quot;&gt;
+&lt;h2 id=&quot;s2&quot;&gt;اكتشف العلاقة&lt;/h2&gt;
+&lt;p&gt;الرسمان يتحدثان معك مباشرة: النقطة تتحرك عندما تغيّر المنزلقين.&lt;/p&gt;
+&lt;div class=&quot;two&quot;&gt;
+&lt;div&gt;&lt;canvas id=&quot;g1&quot; width=&quot;400&quot; height=&quot;260&quot; role=&quot;img&quot; aria-label=&quot;التسارع مقابل القوة&quot;&gt;&lt;/canvas&gt;&lt;p class=&quot;note&quot; style=&quot;margin-top:6px&quot;&gt;التسارع مقابل القوة (الكتلة ثابتة): خط مستقيم. &lt;b&gt;ضعف القوة = ضعف التسارع.&lt;/b&gt;&lt;/p&gt;&lt;/div&gt;
+&lt;div&gt;&lt;canvas id=&quot;g2&quot; width=&quot;400&quot; height=&quot;260&quot; role=&quot;img&quot; aria-label=&quot;التسارع مقابل الكتلة&quot;&gt;&lt;/canvas&gt;&lt;p class=&quot;note&quot; style=&quot;margin-top:6px&quot;&gt;التسارع مقابل الكتلة (القوة ثابتة): منحنى يهبط. &lt;b&gt;ضعف الكتلة = نصف التسارع.&lt;/b&gt;&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+
+&lt;section aria-labelledby=&quot;s3&quot;&gt;
+&lt;h2 id=&quot;s3&quot;&gt;القانون&lt;/h2&gt;
+&lt;div class=&quot;law&quot;&gt;التسارع الذي يكتسبه جسم يتناسب طردياً مع محصلة القوى المؤثرة عليه، وعكسياً مع كتلته، وفي اتجاه المحصلة.&lt;/div&gt;
+&lt;div class=&quot;eq&quot;&gt;F = m × a&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;b&gt;F&lt;/b&gt; محصلة القوى بالنيوتن (N). والنيوتن الواحد هو القوة التي تعطي كتلة 1 كغ تسارعاً 1 م/ث².&lt;/li&gt;
+&lt;li&gt;&lt;b&gt;m&lt;/b&gt; الكتلة بالكيلوغرام (kg).&lt;/li&gt;
+&lt;li&gt;&lt;b&gt;a&lt;/b&gt; التسارع بالمتر لكل ثانية² (م/ث²).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;القانون الأول حالة خاصة: إذا كانت F = 0 فإن a = 0، أي تبقى السرعة ثابتة.&lt;/p&gt;
+&lt;/section&gt;
+
+&lt;section aria-labelledby=&quot;s4&quot;&gt;
+&lt;h2 id=&quot;s4&quot;&gt;حاسبة سريعة&lt;/h2&gt;
+&lt;p&gt;أدخل أي قيمتين واحسب الثالثة.&lt;/p&gt;
+&lt;div class=&quot;ctl&quot;&gt;
+&lt;label&gt;القوة F (N)&lt;input id=&quot;cF&quot; type=&quot;number&quot; step=&quot;any&quot; inputmode=&quot;decimal&quot;&gt;&lt;/label&gt;
+&lt;label&gt;الكتلة m (kg)&lt;input id=&quot;cm&quot; type=&quot;number&quot; step=&quot;any&quot; inputmode=&quot;decimal&quot;&gt;&lt;/label&gt;
+&lt;label&gt;التسارع a (م/ث²)&lt;input id=&quot;ca&quot; type=&quot;number&quot; step=&quot;any&quot; inputmode=&quot;decimal&quot;&gt;&lt;/label&gt;
+&lt;/div&gt;
+&lt;button id=&quot;calc&quot;&gt;احسب&lt;/button&gt;
+&lt;p class=&quot;ans&quot; id=&quot;cres&quot;&gt;&lt;/p&gt;
+&lt;/section&gt;
+
+&lt;section aria-labelledby=&quot;s5&quot;&gt;
+&lt;h2 id=&quot;s5&quot;&gt;اختبر نفسك&lt;/h2&gt;
+&lt;div id=&quot;quiz&quot;&gt;&lt;/div&gt;
+&lt;p class=&quot;score&quot; id=&quot;score&quot;&gt;&lt;/p&gt;
+&lt;/section&gt;
+&lt;/main&gt;
+
+&lt;script&gt;
+(function(){
+var $=function(i){return document.getElementById(i)};
+var css=function(n){return getComputedStyle(document.documentElement).getPropertyValue(n).trim()};
+var cv=$(&#x27;cv&#x27;),c=cv.getContext(&#x27;2d&#x27;);
+var x=0,v=0,t=0,pushing=false,last=null;
+function arrow(k,x1,y1,x2,y2,col){k.strokeStyle=col;k.fillStyle=col;k.lineWidth=5;k.lineCap=&#x27;round&#x27;;k.beginPath();k.moveTo(x1,y1);k.lineTo(x2,y2);k.stroke();
+ var d=Math.sign(x2-x1)||1;k.beginPath();k.moveTo(x2,y2);k.lineTo(x2-d*12,y2-8);k.lineTo(x2-d*12,y2+8);k.closePath();k.fill()}
+function A(){return pushing?(+$(&#x27;F&#x27;).value)/(+$(&#x27;m&#x27;).value):0}
+function draw(){
+ var W=800,H=240,gy=170;c.clearRect(0,0,W,H);
+ c.strokeStyle=css(&#x27;--line&#x27;);c.lineWidth=3;c.beginPath();c.moveTo(0,gy);c.lineTo(W,gy);c.stroke();
+ c.lineWidth=2;var st=60,off=((x*40)%st+st)%st;
+ for(var i=-1;i&lt;W/st+1;i++){var p=i*st+off;c.beginPath();c.moveTo(p,gy);c.lineTo(p,gy+14);c.stroke()}
+ var m=+$(&#x27;m&#x27;).value,s=34+m*4,bx=W/2-s/2;
+ c.fillStyle=css(&#x27;--block&#x27;);c.fillRect(bx,gy-s,s,s);
+ c.fillStyle=css(&#x27;--card&#x27;);c.font=&#x27;600 15px Tahoma,sans-serif&#x27;;c.textAlign=&#x27;center&#x27;;c.fillText(m+&#x27; كغ&#x27;,W/2,gy-s/2+5);
+ var F=+$(&#x27;F&#x27;).value;
+ if(pushing&amp;&amp;F&gt;0){arrow(c,bx-6-F*7,gy-s/2,bx-6,gy-s/2,css(&#x27;--force&#x27;));c.fillStyle=css(&#x27;--force&#x27;);c.fillText(&#x27;F = &#x27;+F+&#x27; N&#x27;,bx-6-F*3.5,gy-s/2-14)}
+ if(v&gt;0.05){var L=Math.min(v*9,300);arrow(c,W/2,gy-s-24,W/2+L,gy-s-24,css(&#x27;--vel&#x27;));c.fillStyle=css(&#x27;--vel&#x27;);c.fillText(&#x27;v&#x27;,W/2+L/2,gy-s-36)}
+}
+function tick(ts){
+ if(last===null)last=ts;var dt=Math.min((ts-last)/1000,.05);last=ts;
+ if(pushing){t+=dt}
+ var a=A();v+=a*dt;x+=v*dt;
+ if(x*40&gt;1e6)x=0;
+ $(&#x27;ra&#x27;).textContent=a.toFixed(1)+&#x27; م/ث²&#x27;;$(&#x27;rv&#x27;).textContent=v.toFixed(1)+&#x27; م/ث&#x27;;$(&#x27;rt&#x27;).textContent=t.toFixed(1)+&#x27; ث&#x27;;
+ if(v&gt;60){pushing=false;$(&#x27;note&#x27;).textContent=&#x27;توقفت التجربة عند سرعة كبيرة. اضغط «أعد التجربة».&#x27;}
+ draw();requestAnimationFrame(tick)}
+$(&#x27;go&#x27;).onclick=function(){pushing=true;var a=A();$(&#x27;note&#x27;).textContent=&#x27;a = F ÷ m = &#x27;+$(&#x27;F&#x27;).value+&#x27; ÷ &#x27;+$(&#x27;m&#x27;).value+&#x27; = &#x27;+a.toFixed(1)+&#x27; م/ث². كل ثانية تزداد السرعة بمقدار &#x27;+a.toFixed(1)+&#x27; م/ث.&#x27;};
+$(&#x27;rel&#x27;).onclick=function(){pushing=false;$(&#x27;note&#x27;).textContent=&#x27;زالت القوة فصار a = 0، لكن السرعة لم تختفِ: استمرت ثابتة. هذا هو القانون الأول.&#x27;};
+$(&#x27;reset&#x27;).onclick=function(){pushing=false;v=0;x=0;t=0;$(&#x27;note&#x27;).textContent=&#x27;اختر قوة وكتلة ثم اضغط «ابدأ».&#x27;};
+function lab(){$(&#x27;FT&#x27;).textContent=$(&#x27;F&#x27;).value;$(&#x27;mT&#x27;).textContent=$(&#x27;m&#x27;).value;graphs()}
+$(&#x27;F&#x27;).oninput=lab;$(&#x27;m&#x27;).oninput=lab;
+
+function graph(id,fn,xmax,cur,xl,ymax){
+ var g=$(id).getContext(&#x27;2d&#x27;),W=400,H=260,l=46,b=34,r=14,tp=14;g.clearRect(0,0,W,H);
+ g.strokeStyle=css(&#x27;--line&#x27;);g.lineWidth=2;g.beginPath();g.moveTo(l,tp);g.lineTo(l,H-b);g.lineTo(W-r,H-b);g.stroke();
+ var X=function(q){return l+q/xmax*(W-l-r)},Y=function(q){return H-b-Math.min(q,ymax)/ymax*(H-b-tp)};
+ g.strokeStyle=css(&#x27;--vel&#x27;);g.lineWidth=3;g.beginPath();var f=true;
+ for(var q=(id===&#x27;g2&#x27;?1:0);q&lt;=xmax+.001;q+=xmax/100){var yy=fn(q);if(f){g.moveTo(X(q),Y(yy));f=false}else g.lineTo(X(q),Y(yy))}g.stroke();
+ g.fillStyle=css(&#x27;--force&#x27;);g.beginPath();g.arc(X(cur),Y(fn(cur)),8,0,7);g.fill();
+ g.fillStyle=css(&#x27;--mute&#x27;);g.font=&#x27;13px Tahoma,sans-serif&#x27;;g.textAlign=&#x27;center&#x27;;g.fillText(xl,(l+W-r)/2,H-8);
+ g.save();g.translate(14,(tp+H-b)/2);g.rotate(-Math.PI/2);g.fillText(&#x27;a (م/ث²)&#x27;,0,0);g.restore();
+ g.textAlign=&#x27;right&#x27;;g.fillText(ymax,l-6,tp+10);g.fillText(0,l-6,H-b);
+}
+function graphs(){var F=+$(&#x27;F&#x27;).value,m=+$(&#x27;m&#x27;).value;
+ graph(&#x27;g1&#x27;,function(q){return q/m},20,F,&#x27;F (N) — الكتلة &#x27;+m+&#x27; كغ&#x27;,20);
+ graph(&#x27;g2&#x27;,function(q){return F/q},10,m,&#x27;m (kg) — القوة &#x27;+F+&#x27; N&#x27;,20)}
+graphs();
+window.addEventListener(&#x27;resize&#x27;,graphs);
+requestAnimationFrame(tick);
+
+$(&#x27;calc&#x27;).onclick=function(){
+ var F=$(&#x27;cF&#x27;).value,m=$(&#x27;cm&#x27;).value,a=$(&#x27;ca&#x27;).value,o=$(&#x27;cres&#x27;),n=function(z){return Math.round(z*100)/100};
+ var k=[F,m,a].filter(function(z){return z!==&#x27;&#x27;}).length;
+ if(k!==2){o.textContent=&#x27;أدخل قيمتين فقط واترك الثالثة فارغة.&#x27;;return}
+ if(F===&#x27;&#x27;)o.textContent=&#x27;F = m × a = &#x27;+n(m*a)+&#x27; N&#x27;;
+ else if(m===&#x27;&#x27;){if(+a===0){o.textContent=&#x27;لا يمكن القسمة على تسارع صفر.&#x27;;return}o.textContent=&#x27;m = F ÷ a = &#x27;+n(F/a)+&#x27; kg&#x27;}
+ else{if(+m&lt;=0){o.textContent=&#x27;الكتلة يجب أن تكون أكبر من صفر.&#x27;;return}o.textContent=&#x27;a = F ÷ m = &#x27;+n(F/m)+&#x27; م/ث²&#x27;}};
+
+var Q=[
+{q:&#x27;قوة محصلة 20 N تؤثر على جسم كتلته 4 كغ. ما تسارعه؟&#x27;,o:[&#x27;5 م/ث²&#x27;,&#x27;80 م/ث²&#x27;,&#x27;0.2 م/ث²&#x27;],a:0,w:&#x27;a = F ÷ m = 20 ÷ 4 = 5.&#x27;},
+{q:&#x27;إذا ضاعفنا القوة المحصلة على جسم ثابت الكتلة، فإن تسارعه:&#x27;,o:[&#x27;يتضاعف&#x27;,&#x27;ينقص للنصف&#x27;,&#x27;لا يتغير&#x27;],a:0,w:&#x27;التسارع يتناسب طردياً مع القوة.&#x27;},
+{q:&#x27;القوة نفسها تؤثر على جسمين: كتلة الأول 2 كغ والثاني 6 كغ. أيهما تسارعه أكبر؟&#x27;,o:[&#x27;الأول، وتسارعه 3 أضعاف الثاني&#x27;,&#x27;الثاني&#x27;,&#x27;متساويان&#x27;],a:0,w:&#x27;التسارع يتناسب عكسياً مع الكتلة: 6 ÷ 2 = 3.&#x27;},
+{q:&#x27;جسم كتلته 3 كغ تسارعه 4 م/ث². ما القوة المحصلة؟&#x27;,o:[&#x27;0.75 N&#x27;,&#x27;12 N&#x27;,&#x27;7 N&#x27;],a:1,w:&#x27;F = m × a = 3 × 4 = 12.&#x27;}];
+var done=0,sc=0,box=$(&#x27;quiz&#x27;);
+Q.forEach(function(it,i){
+ var d=document.createElement(&#x27;div&#x27;);d.className=&#x27;q&#x27;;d.innerHTML=&#x27;&lt;p&gt;&lt;b&gt;&#x27;+(i+1)+&#x27;.&lt;/b&gt; &#x27;+it.q+&#x27;&lt;/p&gt;&#x27;;
+ var res=document.createElement(&#x27;p&#x27;);res.className=&#x27;why&#x27;;
+ it.o.forEach(function(t,j){var b=document.createElement(&#x27;button&#x27;);b.className=&#x27;opt&#x27;;b.textContent=t;
+  b.onclick=function(){if(d.dataset.done)return;d.dataset.done=1;done++;var bs=d.querySelectorAll(&#x27;.opt&#x27;);
+   if(j===it.a){b.classList.add(&#x27;right&#x27;);sc++;res.textContent=&#x27;صحيح. &#x27;+it.w}else{b.classList.add(&#x27;wrong&#x27;);bs[it.a].classList.add(&#x27;right&#x27;);res.textContent=&#x27;ليست صحيحة. &#x27;+it.w}
+   if(done===Q.length)$(&#x27;score&#x27;).textContent=&#x27;نتيجتك: &#x27;+sc+&#x27; من &#x27;+Q.length+(sc===Q.length?&#x27; — ممتاز!&#x27;:&#x27; — جرّب التجربة والحاسبة وأعد المحاولة.&#x27;);};
+  d.appendChild(b)});
+ d.appendChild(res);box.appendChild(d)});
+})();
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+" hidden></iframe><iframe id="f3" title="القانون الثالث" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;ar&quot; dir=&quot;rtl&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, viewport-fit=cover&quot;&gt;
+&lt;title&gt;قانون نيوتن الثالث – الفعل ورد الفعل&lt;/title&gt;
+&lt;link href=&quot;https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;600;700&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;style&gt;
+:root{--bg:#eef2f6;--card:#fff;--ink:#14243a;--mute:#5a6b80;--line:#c9d4e0;--grid:#dde5ee;--force:#e0522d;--vel:#0f8b8d;--ok:#1d8a4e;--bad:#c23a3a;--block:#14243a;--b2:#6b4fd1;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme=&quot;light&quot;]){--bg:#0e1824;--card:#16253a;--ink:#e8eef6;--mute:#94a6bb;--line:#2b3f58;--grid:#1a2b42;--force:#ff7a52;--vel:#3fd0d2;--ok:#4fd28a;--bad:#ff7777;--block:#e8eef6;--b2:#a994ff}}
+:root[data-theme=&quot;dark&quot;]{--bg:#0e1824;--card:#16253a;--ink:#e8eef6;--mute:#94a6bb;--line:#2b3f58;--grid:#1a2b42;--force:#ff7a52;--vel:#3fd0d2;--ok:#4fd28a;--bad:#ff7777;--block:#e8eef6;--b2:#a994ff}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:&quot;Readex Pro&quot;,Tahoma,&quot;Segoe UI&quot;,sans-serif;line-height:1.9;
+background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:28px 28px}
+main{max-width:860px;margin:0 auto;padding:24px 16px 64px}
+h1{font-size:clamp(1.9rem,6vw,3rem);line-height:1.3;margin:12px 0 8px;font-weight:700}
+h2{font-size:1.35rem;margin:0 0 10px}
+p{margin:0 0 12px;max-width:62ch}
+a{color:var(--vel)}
+.lead{color:var(--mute);font-size:1.05rem}
+section{background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:20px;margin:22px 0}
+.law{border-inline-start:6px solid var(--force);padding:10px 16px;background:var(--bg);border-radius:0 8px 8px 0;font-weight:600}
+canvas{width:100%;height:auto;display:block;border:1.5px solid var(--line);border-radius:10px;background:var(--bg)}
+.ctl{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin:14px 0}
+label{display:block;font-size:.92rem;color:var(--mute)}
+label b{color:var(--ink)}
+input[type=range]{width:100%;accent-color:var(--force)}
+button{font:inherit;cursor:pointer;border:1.5px solid var(--ink);background:var(--ink);color:var(--card);padding:8px 18px;border-radius:8px;margin:4px 0 4px 6px}
+button.alt{background:transparent;color:var(--ink)}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid var(--vel);outline-offset:2px}
+.read{display:flex;flex-wrap:wrap;gap:10px;margin:10px 0}
+.read div{flex:1 1 120px;border:1.5px solid var(--line);border-radius:8px;padding:6px 12px;font-size:.9rem;color:var(--mute)}
+.read strong{display:block;font-size:1.3rem;color:var(--ink);font-variant-numeric:tabular-nums}
+.note{font-size:.95rem;color:var(--mute);min-height:3.4em}
+.pairs{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+.pairs button{background:transparent;color:var(--ink);border-color:var(--line);text-align:start;margin:0}
+.pairs button[aria-pressed=true]{border-color:var(--force)}
+.q{margin:16px 0;padding-top:12px;border-top:1px dashed var(--line)}
+.q:first-of-type{border:0}
+.opt{display:block;width:100%;text-align:start;background:transparent;color:var(--ink);border-color:var(--line);margin:6px 0}
+.opt.right{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 16%,transparent)}
+.opt.wrong{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 16%,transparent)}
+.why{font-size:.93rem;color:var(--mute);margin:4px 0 0}
+.score{font-weight:700;font-size:1.1rem}
+ul{padding-inline-start:22px;margin:0}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;main&gt;
+&lt;header&gt;
+&lt;p class=&quot;lead&quot; style=&quot;margin:0&quot;&gt;الفيزياء · الحركة والقوة&lt;/p&gt;
+&lt;h1&gt;قانون نيوتن الثالث: القوى تأتي دائماً في أزواج&lt;/h1&gt;
+&lt;p class=&quot;lead&quot;&gt;عندما تدفع الحائط، يدفعك الحائط. جرّب بنفسك: عربتان تتدافعان على سطح أملس.&lt;/p&gt;
+&lt;/header&gt;
+
+&lt;section aria-labelledby=&quot;s1&quot;&gt;
+&lt;h2 id=&quot;s1&quot;&gt;التجربة: عربتان تتدافعان&lt;/h2&gt;
+&lt;canvas id=&quot;cv&quot; width=&quot;800&quot; height=&quot;240&quot; role=&quot;img&quot; aria-label=&quot;عربتان تتباعدان بعد دفع متبادل&quot;&gt;&lt;/canvas&gt;
+&lt;div class=&quot;read&quot;&gt;
+&lt;div&gt;قوة العربة 1 على 2&lt;strong id=&quot;f1&quot;&gt;0 N&lt;/strong&gt;&lt;/div&gt;
+&lt;div&gt;قوة العربة 2 على 1&lt;strong id=&quot;f2&quot;&gt;0 N&lt;/strong&gt;&lt;/div&gt;
+&lt;div&gt;سرعة العربة 1&lt;strong id=&quot;v1&quot;&gt;0.0 م/ث&lt;/strong&gt;&lt;/div&gt;
+&lt;div&gt;سرعة العربة 2&lt;strong id=&quot;v2&quot;&gt;0.0 م/ث&lt;/strong&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ctl&quot;&gt;
+&lt;label&gt;كتلة العربة 1: &lt;b id=&quot;m1T&quot;&gt;2&lt;/b&gt; كغ&lt;input id=&quot;m1&quot; type=&quot;range&quot; min=&quot;1&quot; max=&quot;10&quot; step=&quot;1&quot; value=&quot;2&quot;&gt;&lt;/label&gt;
+&lt;label&gt;كتلة العربة 2: &lt;b id=&quot;m2T&quot;&gt;6&lt;/b&gt; كغ&lt;input id=&quot;m2&quot; type=&quot;range&quot; min=&quot;1&quot; max=&quot;10&quot; step=&quot;1&quot; value=&quot;6&quot;&gt;&lt;/label&gt;
+&lt;/div&gt;
+&lt;button id=&quot;go&quot;&gt;تدافعا&lt;/button&gt;
+&lt;button id=&quot;reset&quot; class=&quot;alt&quot;&gt;أعد التجربة&lt;/button&gt;
+&lt;p class=&quot;note&quot; id=&quot;note&quot;&gt;اضغط «تدافعا». لاحظ أن السهمين متساويان دائماً مهما اختلفت الكتلتان.&lt;/p&gt;
+&lt;/section&gt;
+
+&lt;section aria-labelledby=&quot;s2&quot;&gt;
+&lt;h2 id=&quot;s2&quot;&gt;ماذا لاحظنا؟&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;القوتان &lt;b&gt;متساويتان في المقدار&lt;/b&gt; ومتعاكستان في الاتجاه، حتى لو كانت إحدى العربتين أثقل بكثير.&lt;/li&gt;
+&lt;li&gt;لكن &lt;b&gt;التسارع مختلف&lt;/b&gt;: العربة الخفيفة تنطلق أسرع. لأن a = F ÷ m (القانون الثاني).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;div class=&quot;law&quot;&gt;لكل فعل رد فعل مساوٍ له في المقدار ومعاكس له في الاتجاه، ويؤثران في جسمين مختلفين.&lt;/div&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;سؤال شائع:&lt;/b&gt; إذا كانت القوتان متساويتين ومتعاكستين، فلماذا لا تلغي إحداهما الأخرى؟ لأنهما تؤثران في &lt;b&gt;جسمين مختلفين&lt;/b&gt;. الإلغاء يحدث فقط للقوى المؤثرة على الجسم نفسه.&lt;/p&gt;
+&lt;/section&gt;
+
+&lt;section aria-labelledby=&quot;s3&quot;&gt;
+&lt;h2 id=&quot;s3&quot;&gt;أزواج الفعل ورد الفعل في حياتك&lt;/h2&gt;
+&lt;p&gt;اختر موقفاً لتعرف الزوج:&lt;/p&gt;
+&lt;div class=&quot;pairs&quot; id=&quot;pairs&quot;&gt;&lt;/div&gt;
+&lt;p class=&quot;note&quot; id=&quot;pairNote&quot; style=&quot;margin-top:12px&quot;&gt;&lt;/p&gt;
+&lt;/section&gt;
+
+&lt;section aria-labelledby=&quot;s4&quot;&gt;
+&lt;h2 id=&quot;s4&quot;&gt;اختبر نفسك&lt;/h2&gt;
+&lt;div id=&quot;quiz&quot;&gt;&lt;/div&gt;
+&lt;p class=&quot;score&quot; id=&quot;score&quot;&gt;&lt;/p&gt;
+&lt;/section&gt;
+&lt;/main&gt;
+
+&lt;script&gt;
+(function(){
+var $=function(i){return document.getElementById(i)};
+var css=function(n){return getComputedStyle(document.documentElement).getPropertyValue(n).trim()};
+var cv=$(&#x27;cv&#x27;),c=cv.getContext(&#x27;2d&#x27;);
+var x1=0,x2=0,v1=0,v2=0,push=0,F=0,last=null;
+var PF=24,PT=.4,SC=11;
+function arrow(x1_,y,x2_,col){c.strokeStyle=col;c.fillStyle=col;c.lineWidth=5;c.lineCap=&#x27;round&#x27;;c.beginPath();c.moveTo(x1_,y);c.lineTo(x2_,y);c.stroke();
+ var d=Math.sign(x2_-x1_)||1;c.beginPath();c.moveTo(x2_,y);c.lineTo(x2_-d*12,y-8);c.lineTo(x2_-d*12,y+8);c.closePath();c.fill()}
+function draw(){
+ var W=800,gy=170,m1=+$(&#x27;m1&#x27;).value,m2=+$(&#x27;m2&#x27;).value,s1=30+m1*5,s2=30+m2*5;
+ c.clearRect(0,0,W,240);c.strokeStyle=css(&#x27;--line&#x27;);c.lineWidth=3;c.beginPath();c.moveTo(0,gy);c.lineTo(W,gy);c.stroke();
+ var p1=W/2-s1-2+x1*SC,p2=W/2+2+x2*SC;
+ c.fillStyle=css(&#x27;--block&#x27;);c.fillRect(p1,gy-s1,s1,s1);
+ c.fillStyle=css(&#x27;--b2&#x27;);c.fillRect(p2,gy-s2,s2,s2);
+ c.font=&#x27;600 15px Tahoma,sans-serif&#x27;;c.textAlign=&#x27;center&#x27;;c.fillStyle=css(&#x27;--card&#x27;);
+ c.fillText(m1+&#x27; كغ&#x27;,p1+s1/2,gy-s1/2+5);c.fillStyle=&#x27;#fff&#x27;;c.fillText(m2+&#x27; كغ&#x27;,p2+s2/2,gy-s2/2+5);
+ if(push&gt;0){var L=60;
+  arrow(p1+s1,gy-s1-18,p1+s1+L,gy-s1-18,css(&#x27;--force&#x27;));c.fillStyle=css(&#x27;--force&#x27;);c.fillText(&#x27;على 2&#x27;,p1+s1+L/2,gy-s1-30);
+  arrow(p2,gy-s2-18+(s2&gt;s1?0:0),p2-L,gy-s2-18,css(&#x27;--force&#x27;));c.fillText(&#x27;على 1&#x27;,p2-L/2,gy-s2-30)}
+ else if(Math.abs(v1)+Math.abs(v2)&gt;0){
+  c.fillStyle=css(&#x27;--vel&#x27;);arrow(p1,gy+34,p1-Math.min(Math.abs(v1)*10,200),css(&#x27;--vel&#x27;));arrow(p2+s2,gy+34,p2+s2+Math.min(Math.abs(v2)*10,200),css(&#x27;--vel&#x27;))}
+}
+function tick(ts){
+ if(last===null)last=ts;var dt=Math.min((ts-last)/1000,.05);last=ts;
+ var m1=+$(&#x27;m1&#x27;).value,m2=+$(&#x27;m2&#x27;).value;
+ if(push&gt;0){var d=Math.min(dt,push);v1-=PF/m1*d;v2+=PF/m2*d;push-=d;F=PF}else F=0;
+ if(x1*SC&gt;-340||v1&gt;0)x1+=v1*dt;if(x2*SC&lt;340||v2&lt;0)x2+=v2*dt;
+ $(&#x27;f1&#x27;).textContent=F+&#x27; N&#x27;;$(&#x27;f2&#x27;).textContent=F+&#x27; N&#x27;;
+ $(&#x27;v1&#x27;).textContent=Math.abs(v1).toFixed(1)+&#x27; م/ث&#x27;;$(&#x27;v2&#x27;).textContent=Math.abs(v2).toFixed(1)+&#x27; م/ث&#x27;;
+ draw();requestAnimationFrame(tick)}
+$(&#x27;go&#x27;).onclick=function(){if(push&gt;0)return;x1=x2=v1=v2=0;push=PT;
+ var m1=+$(&#x27;m1&#x27;).value,m2=+$(&#x27;m2&#x27;).value;
+ $(&#x27;note&#x27;).textContent=&#x27;القوتان متساويتان (&#x27;+PF+&#x27; N) لكن a₁ = &#x27;+(PF/m1).toFixed(1)+&#x27; و a₂ = &#x27;+(PF/m2).toFixed(1)+&#x27; م/ث². &#x27;+(m1===m2?&#x27;الكتلتان متساويتان فتتحركان بنفس السرعة.&#x27;:&#x27;العربة الأخف تتحرك أسرع.&#x27;)};
+$(&#x27;reset&#x27;).onclick=function(){push=0;x1=x2=v1=v2=0;$(&#x27;note&#x27;).textContent=&#x27;اختر كتلتين ثم اضغط «تدافعا».&#x27;};
+$(&#x27;m1&#x27;).oninput=function(){$(&#x27;m1T&#x27;).textContent=this.value};
+$(&#x27;m2&#x27;).oninput=function(){$(&#x27;m2T&#x27;).textContent=this.value};
+requestAnimationFrame(tick);
+
+var P=[
+[&#x27;السباحة&#x27;,&#x27;تدفع اليدان الماء إلى الخلف (الفعل)، فيدفع الماء السباح إلى الأمام (رد الفعل).&#x27;],
+[&#x27;المشي&#x27;,&#x27;تدفع قدمك الأرض إلى الخلف، فتدفعك الأرض إلى الأمام. لهذا يصعب المشي على الجليد.&#x27;],
+[&#x27;الصاروخ&#x27;,&#x27;يدفع الصاروخ الغازات المحترقة إلى الأسفل، فتدفعه الغازات إلى الأعلى. ولا يحتاج هواءً يدفعه.&#x27;],
+[&#x27;الكتاب على الطاولة&#x27;,&#x27;يضغط الكتاب على الطاولة إلى الأسفل، وتدفع الطاولة الكتاب إلى الأعلى. زوجان على جسمين مختلفين.&#x27;],
+[&#x27;القفز من قارب&#x27;,&#x27;عند القفز للأمام يتحرك القارب للخلف، لأن قدميك دفعتاه للخلف.&#x27;],
+[&#x27;قذف كرة&#x27;,&#x27;تدفع يدك الكرة للأمام، وتدفع الكرة يدك للخلف، وتشعر بذلك أكثر مع كرة ثقيلة.&#x27;]];
+var pb=$(&#x27;pairs&#x27;);
+P.forEach(function(p){var b=document.createElement(&#x27;button&#x27;);b.textContent=p[0];b.setAttribute(&#x27;aria-pressed&#x27;,&#x27;false&#x27;);
+ b.onclick=function(){pb.querySelectorAll(&#x27;button&#x27;).forEach(function(z){z.setAttribute(&#x27;aria-pressed&#x27;,&#x27;false&#x27;)});b.setAttribute(&#x27;aria-pressed&#x27;,&#x27;true&#x27;);$(&#x27;pairNote&#x27;).textContent=p[1]};pb.appendChild(b)});
+
+var Q=[
+{q:&#x27;يدفع شخص حائطاً بقوة 50 N. قوة دفع الحائط للشخص تساوي:&#x27;,o:[&#x27;50 N في الاتجاه المعاكس&#x27;,&#x27;أقل من 50 N&#x27;,&#x27;صفر لأن الحائط ساكن&#x27;],a:0,w:&#x27;الفعل ورد الفعل متساويان دائماً في المقدار ومتعاكسان في الاتجاه.&#x27;},
+{q:&#x27;لماذا لا يلغي الفعل ورد الفعل أحدهما الآخر؟&#x27;,o:[&#x27;لأنهما غير متساويين&#x27;,&#x27;لأنهما يؤثران في جسمين مختلفين&#x27;,&#x27;لأنهما في الاتجاه نفسه&#x27;],a:1,w:&#x27;الإلغاء يخص القوى المؤثرة على جسم واحد.&#x27;},
+{q:&#x27;تصطدم حشرة بزجاج سيارة سريعة. أي القوتين أكبر؟&#x27;,o:[&#x27;قوة السيارة على الحشرة&#x27;,&#x27;قوة الحشرة على السيارة&#x27;,&#x27;متساويتان&#x27;],a:2,w:&#x27;القوتان متساويتان، لكن تسارع الحشرة الصغيرة الكتلة أكبر بكثير.&#x27;},
+{q:&#x27;ما رد فعل قوة دفع قدمك للأرض أثناء المشي؟&#x27;,o:[&#x27;وزن جسمك&#x27;,&#x27;دفع الأرض لقدمك للأمام&#x27;,&#x27;الاحتكاك مع الهواء&#x27;],a:1,w:&#x27;زوج الفعل ورد الفعل بين القدم والأرض.&#x27;}];
+var done=0,sc=0,box=$(&#x27;quiz&#x27;);
+Q.forEach(function(it,i){
+ var d=document.createElement(&#x27;div&#x27;);d.className=&#x27;q&#x27;;d.innerHTML=&#x27;&lt;p&gt;&lt;b&gt;&#x27;+(i+1)+&#x27;.&lt;/b&gt; &#x27;+it.q+&#x27;&lt;/p&gt;&#x27;;
+ var res=document.createElement(&#x27;p&#x27;);res.className=&#x27;why&#x27;;
+ it.o.forEach(function(t,j){var b=document.createElement(&#x27;button&#x27;);b.className=&#x27;opt&#x27;;b.textContent=t;
+  b.onclick=function(){if(d.dataset.done)return;d.dataset.done=1;done++;var bs=d.querySelectorAll(&#x27;.opt&#x27;);
+   if(j===it.a){b.classList.add(&#x27;right&#x27;);sc++;res.textContent=&#x27;صحيح. &#x27;+it.w}else{b.classList.add(&#x27;wrong&#x27;);bs[it.a].classList.add(&#x27;right&#x27;);res.textContent=&#x27;ليست صحيحة. &#x27;+it.w}
+   if(done===Q.length)$(&#x27;score&#x27;).textContent=&#x27;نتيجتك: &#x27;+sc+&#x27; من &#x27;+Q.length+(sc===Q.length?&#x27; — ممتاز!&#x27;:&#x27; — جرّب التجربة وأعد المحاولة.&#x27;);};
+  d.appendChild(b)});
+ d.appendChild(res);box.appendChild(d)});
+})();
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+" hidden></iframe>
+<div class="nx"><button id="prev">▸ الدرس السابق</button><button id="next">الدرس التالي ◂</button></div>
+<script>
+(function(){
+var T=[1,2,3].map(function(i){return document.getElementById('t'+i)}),F=[1,2,3].map(function(i){return document.getElementById('f'+i)});
+var cur=0;
+function fit(){var f=F[cur];try{var d=f.contentDocument;if(d&&d.documentElement){var h=Math.max(d.documentElement.scrollHeight,d.body.scrollHeight);if(Math.abs(f.offsetHeight-h)>2)f.style.height=h+'px'}}catch(e){}}
+function show(i,scroll){cur=i;T.forEach(function(t,k){t.setAttribute('aria-selected',k===i);F[k].hidden=k!==i});
+ document.getElementById('prev').hidden=i===0;document.getElementById('next').hidden=i===2;
+ try{history.replaceState(null,'','#l'+(i+1))}catch(e){}
+ fit();if(scroll)window.scrollTo(0,0)}
+T.forEach(function(t,k){t.onclick=function(){show(k,true)}});
+document.getElementById('prev').onclick=function(){show(cur-1,true)};
+document.getElementById('next').onclick=function(){show(cur+1,true)};
+F.forEach(function(f){f.addEventListener('load',fit)});
+setInterval(fit,400);
+var m=/l([123])/.exec(location.hash);show(m?+m[1]-1:0,false);
+})();
+</script></body></html>
